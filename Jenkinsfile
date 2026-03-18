@@ -1,15 +1,12 @@
 pipeline {
-    agent { 
-        // Use a label if you want to target specific CentOS nodes
-        label 'centos-node' 
-    }
-
-    tools {
-        // This name must match the name configured in Global Tool Configuration
-        nodejs 'node-20
-    }
-
+    agent any
     stages {
+        stage("checkout"){
+            steps {
+                checkout scm
+            }
+        }
+        stages {
         stage('Check Version') {
             steps {
                 // Verify Node and NPM are available
@@ -17,31 +14,19 @@ pipeline {
                 sh 'npm -v'
             }
         }
-
-        stage('Install Dependencies') {
+        stage("Build"){
             steps {
-                // Install your project dependencies
-                sh 'npm install'
+                sh 'sudo npm install'
             }
         }
-
-        stage('Test') {
+        stage("Test"){
             steps {
-                // Run your application tests
                 sh 'npm test'
             }
         }
-
-        stage('Build') {
-            steps {
-                // Build your application (e.g., for React/Vue)
-                sh 'npm run build'
-            }
-        }
     }
-
-    post {
-        always {
+}
+}
             echo 'Pipeline completed.'
         }
     }
