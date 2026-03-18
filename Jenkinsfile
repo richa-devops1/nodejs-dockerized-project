@@ -9,7 +9,7 @@ pipeline {
 
         stage("Test"){
             steps{
-                sh 'sudo -S yum install npm'
+                sh 'npm install'
                 sh 'npm test'
             }
         }
