@@ -4,12 +4,12 @@ pipeline {
         stage("checkout"){
             steps{
                 checkout scm
-            
             }
         }
+
         stage("Test"){
             steps{
-                sh 'sudo yum install npm'
+                sh 'yum install npm'
                 sh 'npm test'
             }
         }
