@@ -2,15 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh 'npm install'
+                sh 'sudo apt install npm'
+                sh 'npm test'
             }
         }
 
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh './jenkins/scripts/test.sh'
+                sh 'npm run build '
             }
         }
     }
