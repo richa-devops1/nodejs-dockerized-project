@@ -10,7 +10,6 @@ pipeline {
         stage("Build"){
             steps {
                 sh 'npm install'
-                sh '.tmp/durable-65b86ecb/script.sh.copy'
                 
             }
         }
