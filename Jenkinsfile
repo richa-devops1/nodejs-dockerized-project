@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    tools {nodejs "nodejs"}
+    tools {
+        // "NodeJS-20" must match the name you gave the tool in Global Tool Configuration
+        nodejs "NodeJS-20" 
+    }
     stages{
         stage("checkout"){
             steps{
