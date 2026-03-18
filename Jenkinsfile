@@ -10,7 +10,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh '.durable-e46c3bff/script.sh.copy'
+                sh './jenkins/scripts/test.sh'
             }
         }
     }
