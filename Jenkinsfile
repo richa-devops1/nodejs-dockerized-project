@@ -9,7 +9,9 @@ pipeline {
 
         stage("Build"){
             steps {
-                sh 'export PATH=$PATH:/usr/local/bin; sh 'npm install'
+                sh 'npm install'
+                sh './jenkins/scripts/test.sh'
+                
             }
         }
         stage("Test"){
