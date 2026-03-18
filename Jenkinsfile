@@ -27,7 +27,4 @@ pipeline {
     }
 }
 }
-            echo 'Pipeline completed.'
-        }
-    }
-}
+            
