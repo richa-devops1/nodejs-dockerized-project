@@ -1,12 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("checkout"){
-            steps {
-                checkout scm
-            }
-        }
-        stages {
         stage('Check Version') {
             steps {
                 // Verify Node and NPM are available
@@ -14,17 +8,24 @@ pipeline {
                 sh 'npm -v'
             }
         }
-        stage("Build"){
+        stage('Install Dependencies') {
             steps {
-                sh 'sudo npm install'
+                // Install your project dependencies
+                sh 'npm install'
             }
         }
-        stage("Test"){
+        stage('Test') {
             steps {
+                // Run your application tests
                 sh 'npm test'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your application (e.g., for React/Vue)
+                sh 'npm run build'
             }
         }
     }
 }
-}
-            
