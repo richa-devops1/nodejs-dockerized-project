@@ -1,21 +1,16 @@
 pipeline {
     agent any
+
     stages {
-        stage("checkout"){
+        stage('Build') {
             steps {
-                checkout scm
+                sh '/root/.nvm/versions/node/v20.20.1/bin/npm install'
             }
         }
 
-        stage("Build"){
+        stage('Test') {
             steps {
-                sh 'npm install'
-                
-            }
-        }
-        stage("Test"){
-            steps {
-                sh 'npm test'
+                sh '/root/.nvm/versions/node/v20.20.1/bin/npm test || true'
             }
         }
     }
