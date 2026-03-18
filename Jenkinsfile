@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '/usr/bin/npm install'
+                sh 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                sh '/usr/bin/npm test || true'
+                sh '.durable-e46c3bff/script.sh.copy'
             }
         }
     }
