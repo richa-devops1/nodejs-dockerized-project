@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'node20' // Use the name from step 2
+    }
     stages {
         stage('Check Version') {
             steps {
