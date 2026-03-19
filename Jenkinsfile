@@ -32,10 +32,10 @@ pipeline {
         }
         stage ('Build image') {
             steps {
-                sh 'docker build -t my-nodejs-app:1.0'
+                sh 'docker build -t my-node-app:1.0 .'
             }
-        }  
-        stage('Docker Login') {
+        }
+          stage('Docker Login') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
@@ -52,4 +52,4 @@ pipeline {
             }
         }
     }  
-}
+}  
