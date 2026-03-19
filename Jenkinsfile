@@ -37,7 +37,7 @@ pipeline {
         }  
         stage('Docker Login') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER' passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
                     sh 'docker tag my-node-app:1.0 richdevops/my-node-app:1.0'
                     sh 'docker push richdevops/my-node-app:1.0'
