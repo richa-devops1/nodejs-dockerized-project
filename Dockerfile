@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:20
 WORKDIR /apps
 ADD . .
 RUN npm install
