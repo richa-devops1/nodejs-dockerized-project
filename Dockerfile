@@ -1,5 +1,7 @@
 FROM node:latest
 WORKDIR /apps
-ADD . .
+COPY package*.json ./
 RUN npm install
-CMD ["node", "index.js"]
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
