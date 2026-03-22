@@ -14,6 +14,6 @@ template:
      spec:
        containers:
        - name: node-app
-         image: 
+         image: docker build -t my-node-app:1.0
          ports:
          - containerPort: 3000
